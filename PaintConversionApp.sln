@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paintconversion.console", "PaintConversion.Console\paintconversion.console.csproj", "{90E594A4-FBFB-4A33-927F-1616CD5EA481}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "paintconversion.consoleapp", "PaintConversion.Console\paintconversion.consoleapp.csproj", "{90E594A4-FBFB-4A33-927F-1616CD5EA481}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaintConversion.Library", "PaintConversion.Library\PaintConversion.Library.csproj", "{8895131C-49B2-4E7E-A1C1-38F3FA5B28C1}"
 EndProject

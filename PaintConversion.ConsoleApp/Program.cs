@@ -1,7 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PaintConversion.Console;
+//using PaintConversion.Console;
+using PaintConversion.ConsoleApp;
 using Serilog;
 
 var builder = new ConfigurationBuilder();
@@ -13,19 +14,21 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
 
-Log.Logger.Information("Application Starting");
+Log.Logger.Information("Application Starting...");
 
 var host = Host.CreateDefaultBuilder()
     .ConfigureServices((context, services) => 
     {
-        services.AddTransient<IGreetingService,GreetingService>();
+        //services.AddTransient<IGreetingService,GreetingService>();
     })
     .UseSerilog()
     .Build();
 
-var svc = ActivatorUtilities.CreateInstance<GreetingService>(host.Services);
+//var svc = ActivatorUtilities.CreateInstance<GreetingService>(host.Services);
 
-svc.Run();
+//svc.Run();
+
+DisplayUI.DisplayWelcomeMessage();
 
 static void BuildConfig(IConfigurationBuilder builder)
 {
