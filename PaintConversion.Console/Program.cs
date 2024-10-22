@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PaintConversion.Console;
 using Serilog;
 
 var builder = new ConfigurationBuilder();
@@ -17,10 +18,14 @@ Log.Logger.Information("Application Starting");
 var host = Host.CreateDefaultBuilder()
     .ConfigureServices((context, services) => 
     {
-
+        services.AddTransient<IGreetingService,GreetingService>();
     })
     .UseSerilog()
     .Build();
+
+var svc = ActivatorUtilities.CreateInstance<GreetingService>(host.Services);
+
+svc.Run();
 
 static void BuildConfig(IConfigurationBuilder builder)
 {
@@ -28,9 +33,4 @@ static void BuildConfig(IConfigurationBuilder builder)
     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
     .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}", optional: true)
     .AddEnvironmentVariables();
-}
-
-public class GreetingService
-{
-    
 }
